@@ -1,8 +1,6 @@
 
 ### Cap Produtos - Backend
 
-  
-
 Projeto desenvolvido na versão 6.0(LTS) do Dotnet. Tem por finalidade mostrar meu know-how na stack .NET e pode ser usado como template efetuando alguns ajustes conforme sua necessidade. 
 
 ### Pacote utilizados no Projeto
@@ -31,6 +29,8 @@ Após estes pequenos passos, e com o **DOCKER INSTALADO!**, abra um terminal na 
 > docker-compose up
 
 Com isto os Containers do banco, Back-end e Front-end devem subir e já estar prontos para uso!
+
+Lembrando que a estrutura do banco será gerada via migration no back-end, as migrations e seeds para popular o sistema serão rodadas automaticamente ao iniciar a aplicação!
 
 A porta para chamar o back-end por default está na 5000, se certifique que nenhuma aplicação está rodando nesta porta antes de executar este projeto.
 
