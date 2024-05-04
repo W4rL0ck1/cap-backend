@@ -8,9 +8,7 @@ Projeto desenvolvido na versão 6.0(LTS) do Dotnet. Tem por finalidade mostrar m
 ### Pacote utilizados no Projeto
 
 - EntityFrameworkCore
-- MediatR
 - Automapper
-- FluentValidation
 - Newtonsoft
 - Swagger
 
