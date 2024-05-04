@@ -1,3 +1,4 @@
+using Cig.Cdu.Infrastructure.Repositories;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,7 @@ namespace products.api.Configurations
             // services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(assembly));
             // services.ConfigureSecurityOptions(configuration);
             services.ConfigureServices(configuration);
-            // services.AddScoped(typeof(Repository<>));
+            services.AddScoped(typeof(Repository<>));
 
             // services.AddSingleton<IEncryptionService, EncryptionService>();
 
