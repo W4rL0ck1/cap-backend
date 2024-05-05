@@ -6,7 +6,6 @@ namespace products.core.Entities
     {
         public Product(){
             this.Category = new Category();
-            this.Checkouts = new HashSet<Checkout>();
         }
         public Guid CategoryID { get; set; }
         public string Name { get; set; }
