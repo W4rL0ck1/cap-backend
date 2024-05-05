@@ -90,8 +90,11 @@ namespace products.api
 
             app.UseSwagger();
 
-            if (bool.Parse(Configuration.GetSection("GroupDeployment:SwaggerEnable").Value))
+            if (bool.Parse(Configuration.GetSection("GroupDeployment:SwaggerEnable").Value)){
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "cap-backend v1"));
+                app.UseSwaggerUI(c => c.RoutePrefix = String.Empty);
+            }
+                
 
             app.UseCors(x => x
                 .SetIsOriginAllowed(_ => true)

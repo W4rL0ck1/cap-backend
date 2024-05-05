@@ -1,6 +1,9 @@
 using Cig.Cdu.Infrastructure.Repositories;
+using HashService;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using products.infrastructure.Repositories;
+using Products.Application;
 
 namespace products.api.Configurations
 {
@@ -19,17 +22,9 @@ namespace products.api.Configurations
 
             // services.AddSingleton<IEncryptionService, EncryptionService>();
 
-            // services.AddTransient<IAdManager, AdManager>();
-            // services.AddTransient<ILoginHttpClientService, LoginHttpClientService>();
-            // services.AddTransient<IGedHttpClientService, GedHttpClientService>();
-            // services.AddTransient<IEmailHttpClientService, EmailHttpClientService>();
-            // services.AddTransient<IIndiceGedService, IndiceGedService>();
-            // services.AddTransient<IJobHttpClientService, JobHttpClientService>();
-            // services.AddTransient<ILoginService, LoginService>();
-            // services.AddTransient<ISapIntegrationService, SapIntegrationService>();
-            // services.AddTransient<ICompetenciaManagerService, CompetenciaManagerService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddSingleton<ISecurityService, SecurityService>();
 
-            //services.AddSingleton<EnvironmentService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Add DbContext to the service container
@@ -39,9 +34,7 @@ namespace products.api.Configurations
                         configuration.GetConnectionString("DefaultConnection"),
                         x => x.MigrationsAssembly("products.infrastructure")));
 
-            //services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>();
-            
-
+            //services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>();       
 
             const string nmApiProperty = "NM_API";
 
