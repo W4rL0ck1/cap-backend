@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 using Products.Application;
+using Products.Application.Services;
 
 namespace HashService
 {
@@ -17,9 +18,8 @@ namespace HashService
 
         public string CreateHMACSHA512Hash(string input)
         {
-            var testeKey = _configuration.GetSection("SecretKey:HashKey");
-            var teste = TransformStringIntoByteArray("MEUPAUDEOCULOS");
-            using (HMACSHA512 hmac = new HMACSHA512(teste))
+            var key = _configuration.GetSection("SecretKey:HashKey").Value.ToString().Trim();
+            using (HMACSHA512 hmac = new HMACSHA512(TransformStringIntoByteArray(key)))
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashBytes = hmac.ComputeHash(bytes);
