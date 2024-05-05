@@ -12,16 +12,16 @@ namespace products.infrastructure.Migrations
         INSERT INTO public.""User""
         (""ID"", ""Name"", ""Email"", ""Gender"", ""CPFCNPJ"", ""AcessHash"", ""DT_UPDATED"", ""DT_CREATED"")
         VALUES
-        ('3d6bfea0-1662-4c3c-b961-e42959b3ecf2', 'John Doe', 'john.doe@example.com', 'Male', '12345678900', 'accesshash123', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('fdd54d83-8dbe-4fce-8a8f-e458634bcf90', 'Jane Smith', 'jane.smith@example.com', 'Female', '98765432100', 'accesshash456', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('fdd54d83-8dbe-4fce-8a8f-e458634bcf91', 'Michael Johnson', 'michael.johnson@example.com', 'Male', '45678912300', 'accesshash789', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('82b9208a-e4c2-4f70-bf71-6e79f732bc57', 'Emily Davis', 'emily.davis@example.com', 'Female', '65432198700', 'accesshash012', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c1', 'Christopher Wilson', 'christopher.wilson@example.com', 'Male', '78912345600', 'accesshash345', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c2', 'Jessica Martinez', 'jessica.martinez@example.com', 'Female', '32165498700', 'accesshash678', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c3', 'Daniel Taylor', 'daniel.taylor@example.com', 'Male', '98765412300', 'accesshash901', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c4', 'Emma Anderson', 'emma.anderson@example.com', 'Female', '45678932100', 'accesshash234', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c5', 'Andrew Thomas', 'andrew.thomas@example.com', 'Male', '65412378900', 'accesshash567', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c6', 'Olivia Garcia', 'olivia.garcia@example.com', 'Female', '78932145600', 'accesshash890', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+        ('3d6bfea0-1662-4c3c-b961-e42959b3ecf2', 'Renato Santos', 'renato.teste@teste.com', 'Male', '12345678900', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('fdd54d83-8dbe-4fce-8a8f-e458634bcf90', 'Jane Smith', 'jane.smith@example.com', 'Female', '98765432100', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('fdd54d83-8dbe-4fce-8a8f-e458634bcf91', 'Michael Johnson', 'michael.johnson@example.com', 'Male', '45678912300', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('82b9208a-e4c2-4f70-bf71-6e79f732bc57', 'Emily Davis', 'emily.davis@example.com', 'Female', '65432198700', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c1', 'Christopher Wilson', 'christopher.wilson@example.com', 'Male', '78912345600', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c2', 'Jessica Martinez', 'jessica.martinez@example.com', 'Female', '32165498700', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c3', 'Daniel Taylor', 'daniel.taylor@example.com', 'Male', '98765412300', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c4', 'Emma Anderson', 'emma.anderson@example.com', 'Female', '45678932100', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c5', 'Andrew Thomas', 'andrew.thomas@example.com', 'Male', '65412378900', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+        ('5b2e4daf-20f0-43d2-aade-7925b6cd80c6', 'Olivia Garcia', 'olivia.garcia@example.com', 'Female', '78932145600', 'b0b14fa27c0946660d90d7ca0b2cfd759314a43004bf6a38ed2e98092fe4b18c8e5ae07c16da7b0da8b2cff3cbe72208f61b16e7936e478c7d0f473f2c2c795b', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
         INSERT INTO public.""Address""
         (""ID"", ""UserID"", ""StreetAddress"", ""City"", ""State"", ""CEP"", ""Active"", ""DT_UPDATED"", ""DT_CREATED"")
