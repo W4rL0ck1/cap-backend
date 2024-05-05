@@ -2,32 +2,32 @@ using Cig.Cdu.Infrastructure.Repositories;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using products.core.Entities;
-using products.infrastructure.Repositories.Interfaces;
+using products.infrastructure.Repositories;
 
 namespace ckeckouts.infrastructure.Repositories
 {
     
-    public class ckeckoutRepository : ICkeckoutRepository
+    public class CkeckoutRepository : ICkeckoutRepository
     {
         private Repository<Checkout> _ckeckoutRepository;
         private AppDbContext _context;
 
-        public ckeckoutRepository(Repository<Checkout> ckeckoutRepository, AppDbContext context) {
+        public CkeckoutRepository(Repository<Checkout> ckeckoutRepository, AppDbContext context) {
             _ckeckoutRepository = ckeckoutRepository;
             _context=  context;
         }
 
-        public Checkout GetCheckoutByID(Guid prckeckoutId){
-            var ckeckout = _context.Checkout
+        public async Task<Checkout> GetCheckoutByID(Guid prckeckoutId){
+            var ckeckout = await _context.Checkout
                                 .Where(x => x.Id == prckeckoutId)
                                 .Include(x => x.Products)
-                                .FirstOrDefault();
+                                .FirstOrDefaultAsync();
             return ckeckout;
         }
-        public bool CreateCkeckout(Checkout prCheckout){
+        public async Task<bool> CreateCkeckout(Checkout prCheckout){
             try
             {
-                var ckeckout = _ckeckoutRepository.Create(prCheckout);
+                var ckeckout = await _ckeckoutRepository.CreateAsync(prCheckout);
                 return true;
             }
             catch (System.Exception ex)
@@ -36,7 +36,7 @@ namespace ckeckouts.infrastructure.Repositories
                 return false;
             }
         }
-        public bool DeleteCheckoutByID(Guid prckeckout){
+        public async Task<bool>  DeleteCheckoutByID(Guid prckeckout){
             try 
             {
                 var checkout = _ckeckoutRepository.GetById(prckeckout);
@@ -49,7 +49,7 @@ namespace ckeckouts.infrastructure.Repositories
                 return false;
             }
         }
-        public bool UpdateCheckout(Checkout prckeckout){
+        public async Task<bool>  UpdateCheckout(Checkout prckeckout){
             try 
             {
                 var ckeckout = _ckeckoutRepository.Update(prckeckout);
@@ -62,10 +62,10 @@ namespace ckeckouts.infrastructure.Repositories
             }
         }
 
-        public List<Checkout> GetAllCheckouts(){
-            var ckeckouts = _context.Checkout
+        public async Task<List<Checkout>> GetAllCheckouts(){
+            var ckeckouts = await _context.Checkout
                                 .Include(x => x.Products)
-                                .ToList();
+                                .ToListAsync();
             return ckeckouts;
         }
     }

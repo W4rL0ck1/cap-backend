@@ -1,13 +1,13 @@
 using products.core.Entities;
 
-namespace products.infrastructure.Repositories.Interfaces
+namespace products.infrastructure.Repositories
 {
     public interface IUserRepository
     {  
-        public User GetUserByID(Guid prUserId);
-        public bool CreateUser(User prUser);
-        public bool DeleteUserByID(Guid prUserId);
-        public bool UpdateUser(User prUser);
-        public List<User> GetAllUsers();
+        public Task<User> GetUserByID(Guid prUserId);
+        public Task<bool> CreateUser(User prUser);
+        public Task<bool> DeleteUserByID(Guid prUserId);
+        public Task<bool> UpdateUser(User prUser);
+        public Task<List<User>> GetAllUsers();
     }
 }

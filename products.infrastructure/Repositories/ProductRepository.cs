@@ -2,7 +2,7 @@ using Cig.Cdu.Infrastructure.Repositories;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using products.core.Entities;
-using products.infrastructure.Repositories.Interfaces;
+using products.infrastructure.Repositories;
 
 namespace products.infrastructure.Repositories
 {
@@ -17,14 +17,14 @@ namespace products.infrastructure.Repositories
             _context=  context;
         }
 
-        public Product GetProductByID(Guid prProductId){
-            var product = _context.Products
+        public async Task<Product> GetProductByID(Guid prProductId){
+            var product = await _context.Products
                                 .Where(x => x.Id == prProductId)
                                 .Include(x => x.Category)
-                                .FirstOrDefault();
+                                .FirstOrDefaultAsync();
             return product;
         }
-        public bool DeleteProductByID(Guid prProduct){
+        public async Task<bool> DeleteProductByID(Guid prProduct){
             try 
             {
                 var product = _productRepository.GetById(prProduct);
@@ -37,7 +37,7 @@ namespace products.infrastructure.Repositories
                 return false;
             }
         }
-        public bool CreateProduct(Product prProduct){
+        public async Task<bool>  CreateProduct(Product prProduct){
             try
             {
                 var ckeckout = _productRepository.Create(prProduct);
@@ -49,7 +49,7 @@ namespace products.infrastructure.Repositories
                 return false;
             }
         }
-        public bool UpdateProduct(Product prProduct){
+        public async Task<bool>  UpdateProduct(Product prProduct){
             try 
             {
                 var product = _productRepository.Update(prProduct);
@@ -62,10 +62,10 @@ namespace products.infrastructure.Repositories
             }
         }
 
-        public List<Product> GetAllProducts(){
-            var products = _context.Products
+        public async Task<List<Product>> GetAllProducts(){
+            var products = await _context.Products
                                 .Include(x => x.Category)
-                                .ToList();
+                                .ToListAsync();
             return products;
         }
     }

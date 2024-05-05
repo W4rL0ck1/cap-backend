@@ -4,10 +4,10 @@ namespace products.infrastructure.Repositories
 {
     public interface IProductRepository
     {
-        public Product GetProductByID(Guid prProductId);
-        public bool CreateProduct(Product prProduct);
-        public bool DeleteProductByID(Guid prProduct);
-        public bool UpdateProduct(Product prProduct);
-        public List<Product> GetAllProducts();
+        public Task<Product> GetProductByID(Guid prProductId);
+        public Task<bool> CreateProduct(Product prProduct);
+        public Task<bool> DeleteProductByID(Guid prProduct);
+        public Task<bool> UpdateProduct(Product prProduct);
+        public Task<List<Product>> GetAllProducts();
     }
 }

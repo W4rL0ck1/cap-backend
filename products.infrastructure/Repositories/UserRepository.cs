@@ -2,7 +2,7 @@ using Cig.Cdu.Infrastructure.Repositories;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using products.core.Entities;
-using products.infrastructure.Repositories.Interfaces;
+using products.infrastructure.Repositories;
 
 namespace products.infrastructure.Repositories
 {
@@ -17,17 +17,17 @@ namespace products.infrastructure.Repositories
             _context=  context;
         }
 
-        public User GetUserByID(Guid prUserId){
-            var user = _context.User
+        public async Task<User> GetUserByID(Guid prUserId){
+            var user = await _context.User
                                 .Where(x => x.Id == prUserId)
                                 .Include(x => x.Addresses)
-                                .FirstOrDefault();
+                                .FirstOrDefaultAsync();
             return user;
         }
-        public bool CreateUser(User prUser){
+        public async Task<bool> CreateUser(User prUser){
             try
             {
-                var user = _userRepository.Create(prUser);
+                var user = await _userRepository.CreateAsync(prUser);
                 return true;
             }
             catch (System.Exception ex)
@@ -36,10 +36,10 @@ namespace products.infrastructure.Repositories
                 return false;
             }
         }
-        public bool DeleteUserByID(Guid prUserId){
+        public async Task<bool> DeleteUserByID(Guid prUserId){
             try 
             {
-                var user = _userRepository.GetById(prUserId);
+                var user =  _userRepository.GetById(prUserId);
                 _userRepository.Delete(user);
                 return true;
             }
@@ -49,7 +49,7 @@ namespace products.infrastructure.Repositories
                 return false;
             }
         }
-        public bool UpdateUser(User prUser){
+        public async Task<bool> UpdateUser(User prUser){
             try 
             {
                 var user = _userRepository.Update(prUser);
@@ -61,8 +61,8 @@ namespace products.infrastructure.Repositories
                 return false;
             }
         }
-        public List<User> GetAllUsers(){
-            var users = _context.User.ToList();
+        public async Task<List<User>> GetAllUsers(){
+            var users = await _context.User.ToListAsync();
             return users;
         }
     }
