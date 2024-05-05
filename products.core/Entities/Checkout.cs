@@ -4,6 +4,10 @@ namespace products.core.Entities
 {
     public class Checkout: GenericModel
     {
+        public Checkout(){
+            this.Products = new HashSet<Product>();
+            this.User = new User();
+        }
         public Guid UserId { get; set; }
         public int Discount { get; set; }
         public decimal ShippingCost { get; set; }

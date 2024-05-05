@@ -4,6 +4,10 @@ namespace products.core.Entities
 {
     public class Product: GenericModel
     {
+        public Product(){
+            this.Category = new Category();
+            this.Checkouts = new HashSet<Checkout>();
+        }
         public Guid CategoryID { get; set; }
         public string Name { get; set; }
         public int Value { get; set; }
@@ -11,7 +15,7 @@ namespace products.core.Entities
         public bool Active { get; set; }
         public int Discount {get;set;}
 
-        public virtual HashSet<Checkout> Checkout {get;set;}
+        public virtual HashSet<Checkout> Checkouts {get;set;}
         public virtual Category Category {get;set;}
     }
 }

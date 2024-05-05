@@ -4,6 +4,9 @@ namespace products.core.Entities
 {
     public class Address: GenericModel
     {
+        public Address(){
+            this.User = new User();
+        }
         public Guid UserID { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
