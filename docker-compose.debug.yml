@@ -16,6 +16,11 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
       - ~/.vsdbg:/remote_debugger:rw
+    networks:
+      - produtos-network
+    depends_on:
+      - "cap-postgres"
+
   
   cap-postgres:
     image: postgres
@@ -29,7 +34,13 @@ services:
       - postgres-volume:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    networks:
+      - produtos-network
 
 volumes:
   postgres-volume:
     driver: local
+
+networks: 
+  produtos-network:
+    driver: bridge
