@@ -1,11 +1,14 @@
+using System.Text;
 using System.Text.Json.Serialization;
 using Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using products.api.Configurations;
 
@@ -35,7 +38,23 @@ namespace products.api
                 options.MaxRequestBodyBufferSize = int.MaxValue;
             });
 
-            //services.Configure<FormOptions>(options => { options.MultipartBodyLengthLimit = int.MaxValue; });
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "Renato",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("SecretKey:HashKey").Value.ToString().Trim())) // Aqui você define a chave secreta para validar a assinatura do token
+                };
+            });
 
             services.AddSwaggerGen(option =>
             {

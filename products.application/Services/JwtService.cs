@@ -37,6 +37,7 @@ namespace Products.Application.Services
                     new Claim(ClaimTypes.NameIdentifier, jsonString)
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(expirationMinutes),
+                Issuer="Renato",
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 
