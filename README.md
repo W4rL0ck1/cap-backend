@@ -20,7 +20,7 @@ O script para gerar as tabelas se encontra na pasta `docs`
 
 ### Mãos na Massa
 
-O projeto está configurado para ser executado de dentro de um container docker, é recomendado ter ao menos o runTime do .NET 6 e Node instalado para evitar problemas, mas, a aplicação somente precisa do docker instalado na sua maquina.  
+O projeto está configurado para ser executado de dentro de um container docker, é recomendado ter ao menos o runTime do .NET 6 instalado para evitar problemas, mas, a aplicação somente precisa do docker instalado na sua maquina.  
 
 Verifique também  o `appsetting.json` localmente na sua maquina, para conferir se as variaveis da Connection string estão de acordo com seu ambiente. 
 
@@ -35,6 +35,8 @@ Lembrando que a estrutura do banco será gerada via migration no back-end, as mi
 A porta para chamar o back-end por default está na 5000, se certifique que nenhuma aplicação está rodando nesta porta antes de executar este projeto.
 
 PRONTINHO! NESTE MOMENTO SUA APLICAÇÃO DEVE ESTAR RODANDO!
+
+**Disclaimer:** Caso necessite executar o projeto localmente, altere no **appsettings**, a variavel **isRunningInDockerContainer** de true para false. Deste modo a aplicação usará a connection string local para rodar a aplicação! 
 
 Teste executando a url no seu navegador para chamar a UI do swagger com todas as rotas do back-end!
 
