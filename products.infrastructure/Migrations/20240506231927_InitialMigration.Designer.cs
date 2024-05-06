@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace products.infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240504220131_InitialSeeds")]
-    partial class InitialSeeds
+    [Migration("20240506231927_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,13 +26,13 @@ namespace products.infrastructure.Migrations
 
             modelBuilder.Entity("CheckoutProduct", b =>
                 {
-                    b.Property<Guid>("CheckoutId")
+                    b.Property<Guid>("CheckoutsId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("ProductsId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("CheckoutId", "ProductsId");
+                    b.HasKey("CheckoutsId", "ProductsId");
 
                     b.HasIndex("ProductsId");
 
@@ -169,6 +169,9 @@ namespace products.infrastructure.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("integer");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -231,7 +234,7 @@ namespace products.infrastructure.Migrations
                 {
                     b.HasOne("products.core.Entities.Checkout", null)
                         .WithMany()
-                        .HasForeignKey("CheckoutId")
+                        .HasForeignKey("CheckoutsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -245,7 +248,7 @@ namespace products.infrastructure.Migrations
             modelBuilder.Entity("products.core.Entities.Address", b =>
                 {
                     b.HasOne("products.core.Entities.User", "User")
-                        .WithMany()
+                        .WithMany("Addresses")
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -273,6 +276,11 @@ namespace products.infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("products.core.Entities.User", b =>
+                {
+                    b.Navigation("Addresses");
                 });
 #pragma warning restore 612, 618
         }
