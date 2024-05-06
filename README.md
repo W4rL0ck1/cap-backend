@@ -12,7 +12,9 @@ Projeto desenvolvido na versão 6.0(LTS) do Dotnet. Tem por finalidade mostrar m
 
 ### Estrutura das tabelas - Banco de dados
 
-O script para gerar as tabelas se encontra na pasta `docs`
+O script para gerar as tabelas, juntamente com script de seed para popular o banco se encontram na pasta `docs`
+
+Na mesma pasta se encontram o png do MER, assim como o arquivo Draw.io para editar o MER no site de mesmo nome.
 
 ###  MER DA APLICAÇÃO
 --Inserir aqui imagem do MER
