@@ -24,6 +24,7 @@ namespace Products.Application.Services
             _baseResult = baseResult;
         }
 
+        #region Services
         public async Task<User> GetUserByID(Guid UserID){
             var user = await _userRepository.GetUserByID(UserID);
             return user;
@@ -38,17 +39,22 @@ namespace Products.Application.Services
             bool isEqualHash = _securityService.VerifyHMACSHA512Hash(authParams.Password, user.AcessHash);
             string token = _jwtService.GenerateToken(user, 120); //Expiration in 2 Hours;
 
+            user.AcessHash = ""; // Removendo hash do usuário no retorno do token
             result.User = user;
             result.Token = token;
 
-            if (isEqualHash) return _baseResult.returnResult(result, true, null);
+            if (isEqualHash) return _baseResult.returnResult(result, true, "Autenticado com Sucesso");
 
             return _baseResult.returnResult(result, false, "Usuário ou Senha invalidos!");
         }
         public async Task<ResultDTO<User>> CreateUser(NewUserDTO prUser){
-            var newUser = new User(prUser.UserName, prUser.Email, prUser.Gender, prUser.CPFCNPJ);
+            var newUser = new User(prUser.Name, prUser.Email, prUser.Gender, prUser.CPFCNPJ);
             var hash = _securityService.CreateHMACSHA512Hash(prUser.Password);
             newUser.AcessHash = hash;
+
+            var existingUser = await _userRepository.GetUserByEmail(prUser.Email);
+
+            if(existingUser != null) return _baseResult.returnResult(newUser, false, "Já existe um usuário com este e-mail!");
 
             try
             {
@@ -66,11 +72,15 @@ namespace Products.Application.Services
             return _baseResult.returnResult(newUser, false, $"Usuário não foi criado com sucesso! Entre em contato com o Administrador!");
         }
 
+        #endregion
+
+        #region Bussiness And Utils
+
         private async Task<User> returnUser(string prEmail){
             User user = await _userRepository.GetUserByEmail(prEmail);
-            user.AcessHash = ""; // Removendo hash do usuário no retorno do token
             user.Addresses.Select(x => x.User = null).ToList(); // Removendo redudancia no endereço;
             return user;
         }
+        #endregion
     }
 }

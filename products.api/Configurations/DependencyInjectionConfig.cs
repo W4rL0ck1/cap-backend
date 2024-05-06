@@ -3,6 +3,7 @@ using HashService;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using products.application.Interfaces.Generic;
+using products.application.Services;
 using products.application.Services.Generic;
 using products.infrastructure.Repositories;
 using Products.Application;
@@ -31,8 +32,11 @@ namespace products.api.Configurations
             services.AddSingleton<IJwtService, JwtService>();
             services.AddSingleton<IBaseResult, BaseResult>();
 
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductsService, ProductsServices>();
+
 
             // Add DbContext to the service container
             services.AddDbContext<AppDbContext>(

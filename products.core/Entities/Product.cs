@@ -13,6 +13,7 @@ namespace products.core.Entities
         public string Description { get; set; }
         public bool Active { get; set; }
         public int Discount {get;set;}
+        public string ImageUrl {get;set;}
 
         public virtual HashSet<Checkout> Checkouts {get;set;}
         public virtual Category Category {get;set;}

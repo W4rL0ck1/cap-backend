@@ -24,7 +24,7 @@ namespace Infrastructure
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseNpgsql(
-                    "Host=localhost;Port=5432;Username=myuser;Password=mypassword;Database=mydatabase;Pooling=true;",
+                    "Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=produtos;Pooling=true;",
                     options => options.MigrationsAssembly("products.infrastructure"));
             }
         }
