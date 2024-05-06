@@ -2,6 +2,8 @@ using Cig.Cdu.Infrastructure.Repositories;
 using HashService;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using products.application.Interfaces.Generic;
+using products.application.Services.Generic;
 using products.infrastructure.Repositories;
 using Products.Application;
 using Products.Application.Interfaces;
@@ -27,6 +29,7 @@ namespace products.api.Configurations
             services.AddSingleton<ISecurityService, SecurityService>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IJwtService, JwtService>();
+            services.AddSingleton<IBaseResult, BaseResult>();
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
