@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
+using products.application.DTO;
 using Products.Application;
 using Products.Application.DTO;
 using Products.Application.Interfaces;
@@ -25,19 +26,29 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("CreateHash")]
-    public async Task<IActionResult> CreateHash([FromBody] AuthParams jsonBody)
+    public async Task<IActionResult> CreateHash([FromBody] AuthParamsDTO jsonBody)
     {
             var newHash = _securityService.CreateHMACSHA512Hash(jsonBody.Password);
             return Ok(new { Hash = newHash });
     }
 
     [HttpPost("AuthenticateUser")]
-    public async Task<IActionResult> AuthenticateUser([FromBody] AuthParams jsonBody)
+    public async Task<IActionResult> AuthenticateUser([FromBody] AuthParamsDTO jsonBody)
     {
             var result = await _userService.Authenticate(jsonBody);
 
-            if(result == null) return BadRequest("Usuário ou senha Incorretos!");
+            if(!result.Success) return BadRequest(result.Message);
 
-            return Ok(new { data = result.User, token = result.Token });
+            return Ok(new { data = result.Result, token = result.Result.Token });
+    }
+
+    [HttpPost("CreateUser")]
+    public async Task<IActionResult> CreateUser([FromBody] NewUserDTO jsonBody)
+    {
+            var result = await _userService.CreateUser(jsonBody);
+
+            if(!result.Success) return BadRequest(result.Message);
+
+            return Ok(result);
     }
 }
