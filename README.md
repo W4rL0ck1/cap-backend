@@ -1,4 +1,5 @@
 
+
 ### Cap Produtos - Backend
 
 Projeto desenvolvido na versão 6.0(LTS) do Dotnet. Tem por finalidade mostrar meu know-how na stack .NET e pode ser usado como template efetuando alguns ajustes conforme sua necessidade. 
@@ -17,7 +18,8 @@ O script para gerar as tabelas, juntamente com script de seed para popular o ban
 Na mesma pasta se encontram o png do MER, assim como o arquivo Draw.io para editar o MER no site de mesmo nome.
 
 ###  MER DA APLICAÇÃO
---Inserir aqui imagem do MER
+
+[MER](https://github.com/W4rL0ck1/cap-backend/blob/main/docs/MER.png)
 
 
 ### Mãos na Massa
