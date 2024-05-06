@@ -2,7 +2,7 @@ using products.core.Entities.Generic;
 
 namespace products.core.Entities
 {
-    public class Product: GenericModel
+    public class Product: BaseModel
     {
         public Product(){
             this.Category = new Category();

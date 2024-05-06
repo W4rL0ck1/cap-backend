@@ -2,7 +2,7 @@ using products.core.Entities.Generic;
 
 namespace products.core.Entities
 {
-    public class Address: GenericModel
+    public class Address: BaseModel
     {
         public Address(){
             this.User = new User();

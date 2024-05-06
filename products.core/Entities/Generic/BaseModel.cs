@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace products.core.Entities.Generic
 {
-    public class GenericModel
+    public class BaseModel
     {
         [Column("DT_UPDATED")]
         public DateTime UpdatedDate { get; set; }
