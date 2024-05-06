@@ -24,6 +24,13 @@ namespace products.infrastructure.Repositories
                                 .FirstOrDefaultAsync();
             return user;
         }
+        public async Task<User> GetUserByEmail(string prEmail){
+            var user = await _context.User
+                                .Where(x => x.Email == prEmail)
+                                .Include(x => x.Addresses)
+                                .FirstOrDefaultAsync();
+            return user;
+        }
         public async Task<bool> CreateUser(User prUser){
             try
             {
