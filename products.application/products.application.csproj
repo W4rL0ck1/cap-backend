@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="../Products.Infrastructure/products.infrastructure.csproj" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\products.infrastructure\products.infrastructure.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
