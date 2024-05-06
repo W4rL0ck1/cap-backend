@@ -24,6 +24,13 @@ namespace products.infrastructure.Repositories
                                 .FirstOrDefaultAsync();
             return product;
         }
+        public async Task<List<Product>> GetProductsByName(string srchString){
+            var products = await _context.Products
+                                .Where(x => x.Name.Contains(srchString))
+                                .Include(x => x.Category)
+                                .ToListAsync();
+            return products;
+        }
         public async Task<bool> DeleteProductByID(Guid prProduct){
             try 
             {

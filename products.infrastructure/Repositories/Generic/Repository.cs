@@ -119,10 +119,24 @@ namespace Cig.Cdu.Infrastructure.Repositories
         public async Task<T> CreateAsync(T entity)
         {
             if (entity is not null)
+            {
+                // Define CreatedAt e UpdatedAt com a data atual
+                var now = DateTime.UtcNow;
+                var type = typeof(T);
+                var createdAtProperty = type.GetProperty("UpdatedDate");
+                var updatedAtProperty = type.GetProperty("CreatedDate");
+
+                if (createdAtProperty != null)
+                    createdAtProperty.SetValue(entity, now, null);
+
+                if (updatedAtProperty != null)
+                    updatedAtProperty.SetValue(entity, now, null);
+
                 _dbContext.Entry(entity).State = EntityState.Added;
+            }
 
             await _dbSet.AddAsync(entity);
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
 
             return entity;
         }
