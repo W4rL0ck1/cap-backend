@@ -64,7 +64,7 @@ namespace products.infrastructure.Migrations
         ('78ad1e1b-4c9f-4a60-9d48-25c002a53e08', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Grande Gatsby', 15, 'Romance clássico de F. Scott Fitzgerald', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/300/200'),
         ('d71bce6f-6034-4135-b21a-31891d7fb556', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Sol é para Todos', 12, 'Romance de Harper Lee ambientado no sul dos Estados Unidos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/301/200'),
         ('ab2d81b9-118f-4d28-82f8-5d8333f8378f', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Futebol', 30, 'Bola de futebol de tamanho e peso oficial para jogos recreativos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/302/200'),
-        ('7f94e6fc-4da4-4a35-b1d6-bc7f4910c9df', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Basquete', 25, 'Bola de basquete durável adequada para uso interno e externo', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/id/79/300/200'),
+        ('7f94e6fc-4da4-4a35-b1d6-bc7f4910c9df', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Basquete', 25, 'Bola de basquete durável adequada para uso interno e externo', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/305/200');
         ");
     }
 
