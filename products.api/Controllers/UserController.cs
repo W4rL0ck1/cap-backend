@@ -1,6 +1,8 @@
 using System.Text.Json;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using products.application.DTO;
+using products.application.Validators.Erros;
 using Products.Application;
 using Products.Application.DTO;
 using Products.Application.Interfaces;
@@ -12,17 +14,23 @@ namespace products.api.Controllers;
 public class UserController : ControllerBase
 {
     private readonly ILogger<UserController> _logger;
-    private ISecurityService _securityService;
+    private readonly ISecurityService _securityService;
+    private readonly IUserService _userService;
 
-    private IUserService _userService;
+    private readonly IValidator<AuthParamsDTO> _authParamsDtoValidator;
+    private readonly IValidator<NewUserDTO> _newUserDTOValidator;
 
     public UserController(ILogger<UserController> logger,
                          ISecurityService securityService, 
-                         IUserService userService)
+                         IUserService userService,
+                         IValidator<AuthParamsDTO> authParamsDtoValidator,
+                         IValidator<NewUserDTO> newUserDTOValidator)
     {
         _logger = logger;
         _securityService = securityService;
         _userService = userService;
+        _authParamsDtoValidator = authParamsDtoValidator;
+        _newUserDTOValidator = newUserDTOValidator;
     }
 
     [HttpPost("CreateHash")]
@@ -35,20 +43,26 @@ public class UserController : ControllerBase
     [HttpPost("AuthenticateUser")]
     public async Task<IActionResult> AuthenticateUser([FromBody] AuthParamsDTO jsonBody)
     {
-            var result = await _userService.Authenticate(jsonBody);
+        var validationResult = _authParamsDtoValidator.Validate(jsonBody);
+        if (!validationResult.IsValid) return BadRequest(validationResult.Errors.ToCustomValidationFailure());
 
-            if(!result.Success) return BadRequest(result.Message);
+        var result = await _userService.Authenticate(jsonBody);
 
-            return Ok(new { data = result.Result, token = result.Result.Token });
+        if(!result.Success) return BadRequest(result.Message);
+
+        return Ok(new { data = result.Result, token = result.Result.Token });
     }
 
     [HttpPost("CreateUser")]
     public async Task<IActionResult> CreateUser([FromBody] NewUserDTO jsonBody)
     {
-            var result = await _userService.CreateUser(jsonBody);
+        var validationResult = _newUserDTOValidator.Validate(jsonBody);
+        if (!validationResult.IsValid) return BadRequest(validationResult.Errors.ToCustomValidationFailure());
 
-            if(!result.Success) return BadRequest(result.Message);
+        var result = await _userService.CreateUser(jsonBody);
 
-            return Ok(result);
+        if(!result.Success) return BadRequest(result.Message);
+
+        return Ok(result);
     }
 }

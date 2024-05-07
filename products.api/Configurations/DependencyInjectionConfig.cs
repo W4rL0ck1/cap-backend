@@ -1,12 +1,16 @@
 using Cig.Cdu.Infrastructure.Repositories;
+using FluentValidation;
 using HashService;
 using Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using products.application.DTO;
 using products.application.Interfaces.Generic;
 using products.application.Services;
 using products.application.Services.Generic;
+using products.application.Validators;
 using products.infrastructure.Repositories;
 using Products.Application;
+using Products.Application.DTO;
 using Products.Application.Interfaces;
 using Products.Application.Services;
 
@@ -20,7 +24,11 @@ namespace products.api.Configurations
             var assembly = AppDomain.CurrentDomain.Load(applicationAssemblyName);
 
             // FluentValidation
-            // services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(assembly));
+            services.AddTransient<IValidator<AuthParamsDTO>, AuthParamsDTOValidators>();
+            services.AddTransient<IValidator<NewUserDTO>, NewUserDTOValidator>();
+
+
+
             // services.ConfigureSecurityOptions(configuration);
             services.ConfigureServices(configuration);
             services.AddScoped(typeof(Repository<>));
