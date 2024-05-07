@@ -1,4 +1,5 @@
-       INSERT INTO public.""User""
+
+        INSERT INTO public.""User""
         (""ID"", ""Name"", ""Email"", ""Gender"", ""CPFCNPJ"", ""AcessHash"", ""DT_UPDATED"", ""DT_CREATED"")
         VALUES
         ('3d6bfea0-1662-4c3c-b961-e42959b3ecf2', 'Renato Santos', 'renato.teste@teste.com', 'M', '12345678900', '96979bfc97c9b4e57b3875ee625f59435c1fa3bf16aef3bb91eaba1f8013383b84346075a09cb925f748a05cef3a0cf8be38da0e560b4c6fcdf11d2ec606151c', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
@@ -42,16 +43,16 @@
         ('e00166b4-9d9d-4fe0-96b8-4e9a3e93a66d', 'Automotivo', 'Categoria para produtos automotivos', 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
         INSERT INTO public.""Products""
-        (""ID"", ""CategoryID"", ""Name"", ""Value"", ""Description"", ""Active"", ""Discount"", ""DT_UPDATED"", ""DT_CREATED"")
+        (""ID"", ""CategoryID"", ""Name"", ""Value"", ""Description"", ""Active"", ""Discount"", ""DT_UPDATED"", ""DT_CREATED"", ""ImageURL"")
         VALUES
-        ('6e0b8d7f-e8bc-41b2-bf59-53d9a5116f21', 'c14e1be4-4a61-4cf9-85b0-286a0f153c2e', 'Smartphone', 1000, 'Smartphone de alta qualidade com os últimos recursos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('e61b0db4-7961-49bb-bb0d-431dc13b191f', 'c14e1be4-4a61-4cf9-85b0-286a0f153c2e', 'Notebook', 1500, 'Notebook potente para trabalho e entretenimento', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('dfb9ab90-9242-4f81-b4a9-0d00918f7338', 'c28994c6-0c6c-4b50-a0e0-8a7c9d2c6a6b', 'Camiseta', 20, 'Camiseta de algodão confortável para uso diário', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('0d7e6aa1-6a2c-418a-8010-3ac2c67b3c68', 'c28994c6-0c6c-4b50-a0e0-8a7c9d2c6a6b', 'Calça Jeans', 50, 'Calça jeans clássica para homens e mulheres', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('1a4826eb-c9d9-41c4-b5e4-3df91c369e7c', '7aeb7311-f2cb-4e05-8e76-2df5245432fb', 'Geladeira', 1200, 'Geladeira de grande capacidade com tecnologia avançada de resfriamento', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('b1441812-fb2e-48e9-bcfc-6753d8fcf11c', '7aeb7311-f2cb-4e05-8e76-2df5245432fb', 'Máquina de Lavar', 800, 'Máquina de lavar com carregamento frontal e múltiplos ciclos de lavagem', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('78ad1e1b-4c9f-4a60-9d48-25c002a53e08', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Grande Gatsby', 15, 'Romance clássico de F. Scott Fitzgerald', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('d71bce6f-6034-4135-b21a-31891d7fb556', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Sol é para Todos', 12, 'Romance de Harper Lee ambientado no sul dos Estados Unidos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('ab2d81b9-118f-4d28-82f8-5d8333f8378f', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Futebol', 30, 'Bola de futebol de tamanho e peso oficial para jogos recreativos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-        ('7f94e6fc-4da4-4a35-b1d6-bc7f4910c9df', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Basquete', 25, 'Bola de basquete durável adequada para uso interno e externo', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-        "
+        ('6e0b8d7f-e8bc-41b2-bf59-53d9a5116f21', 'c14e1be4-4a61-4cf9-85b0-286a0f153c2e', 'Smartphone', 1000, 'Smartphone de alta qualidade com os últimos recursos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/id/3/300/200'),
+        ('e61b0db4-7961-49bb-bb0d-431dc13b191f', 'c14e1be4-4a61-4cf9-85b0-286a0f153c2e', 'Notebook', 1500, 'Notebook potente para trabalho e entretenimento', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/id/0/300/200'),
+        ('dfb9ab90-9242-4f81-b4a9-0d00918f7338', 'c28994c6-0c6c-4b50-a0e0-8a7c9d2c6a6b', 'Camiseta', 20, 'Camiseta de algodão confortável para uso diário', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/id/64/300/200'),
+        ('0d7e6aa1-6a2c-418a-8010-3ac2c67b3c68', 'c28994c6-0c6c-4b50-a0e0-8a7c9d2c6a6b', 'Calça Jeans', 50, 'Calça jeans clássica para homens e mulheres', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/id/0/300/200'),
+        ('1a4826eb-c9d9-41c4-b5e4-3df91c369e7c', '7aeb7311-f2cb-4e05-8e76-2df5245432fb', 'Geladeira', 1200, 'Geladeira de grande capacidade com tecnologia avançada de resfriamento', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/301/200'),
+        ('b1441812-fb2e-48e9-bcfc-6753d8fcf11c', '7aeb7311-f2cb-4e05-8e76-2df5245432fb', 'Máquina de Lavar', 800, 'Máquina de lavar com carregamento frontal e múltiplos ciclos de lavagem', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/302/200'),
+        ('78ad1e1b-4c9f-4a60-9d48-25c002a53e08', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Grande Gatsby', 15, 'Romance clássico de F. Scott Fitzgerald', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/303/200'),
+        ('d71bce6f-6034-4135-b21a-31891d7fb556', 'b26e6c7e-1e67-4ad7-8485-01c3fb9c98a9', 'O Sol é para Todos', 12, 'Romance de Harper Lee ambientado no sul dos Estados Unidos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/304/200'),
+        ('ab2d81b9-118f-4d28-82f8-5d8333f8378f', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Futebol', 30, 'Bola de futebol de tamanho e peso oficial para jogos recreativos', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/305/200),
+        ('7f94e6fc-4da4-4a35-b1d6-bc7f4910c9df', 'f3a08556-d6d9-4ad9-b484-201b0476db8c', 'Basquete', 25, 'Bola de basquete durável adequada para uso interno e externo', true, 0, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'https://picsum.photos/306/200');
+        
