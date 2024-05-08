@@ -39,7 +39,10 @@ Lembrando que a estrutura do banco será gerada via migration no back-end, as mi
 
 A porta para chamar o back-end por default está na 5000, se certifique que nenhuma aplicação está rodando nesta porta antes de executar este projeto.
 
-PRONTINHO! NESTE MOMENTO SUA APLICAÇÃO DEVE ESTAR RODANDO!
+PRONTINHO! NESTE MOMENTO SUA APLICAÇÃO IRÁ ESTAR RODANDO!
+
+**Disclaimer:** Não é necessário nenhuma configuração inicial de aplicação, banco e etc. Se você estiver usando o docker, a aplicação irá subir um container loca, subir as migrations, e aplicar a seed no banco.
+Bastando subir os containers com o comando do docker composer e usar! Simples assim!
 
 **Disclaimer:** Caso necessite executar o projeto localmente, altere no **appsettings**, a variavel **isRunningInDockerContainer** de true para false. Deste modo a aplicação usará a connection string local para rodar a aplicação! 
 
