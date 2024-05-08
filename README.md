@@ -1,5 +1,6 @@
 
 
+
 ### Cap Produtos - Backend
 
 Projeto desenvolvido na versão 6.0(LTS) do Dotnet. Tem por finalidade mostrar meu know-how na stack .NET e pode ser usado como template efetuando alguns ajustes conforme sua necessidade. 
@@ -19,7 +20,7 @@ Na mesma pasta se encontram o png do MER, assim como o arquivo [Draw.io](https:/
 
 ###  MER DA APLICAÇÃO
 
-[MER](https://github.com/W4rL0ck1/cap-backend/blob/main/docs/MER.png)
+![MER CAP-PRODUTOS](https://github.com/W4rL0ck1/cap-backend/blob/main/docs/MER.png)
 
 
 ### Mãos na Massa
